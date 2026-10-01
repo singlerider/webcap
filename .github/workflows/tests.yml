@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          pipx install ruff
+          pipx install ruff==0.11.10
           ruff check
           ruff format
   test:
