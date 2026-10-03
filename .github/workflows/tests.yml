@@ -36,12 +36,13 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y tesseract-ocr chromium-browser
+          sudo apt install -y tesseract-ocr
           pip install poetry
           poetry install
+      # chromium-browser on ubuntu-24.04 is a snap shim that fails to install. The image ships google-chrome.
+      - name: Chrome is available
+        run: google-chrome --version
       - name: Run tests
-        env:
-          CHROME_DEVEL_SANDBOX: /usr/lib/chromium/chrome-sandbox
         run: |
           poetry run pytest -s -vv --disable-warnings --cov-report xml:cov.xml --cov=webcap .
       - name: Upload Code Coverage
