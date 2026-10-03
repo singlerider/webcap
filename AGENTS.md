@@ -6,9 +6,9 @@ Lightweight web screenshot tool driving a local Chrome over CDP, with DOM analys
 
 | Concern | This repository |
 |---|---|
-| Language | Python 3.10 through 3.14 |
-| Package manager | poetry (migration to uv tracked by toolchain.md) |
-| Lint and format | ruff, pinned in pyproject.toml |
+| Language | Python, `python` in `[tool.poetry.dependencies]` of pyproject.toml |
+| Package manager | poetry. Not yet on uv, see toolchain.md |
+| Lint and format | ruff, version in the poetry dev group of pyproject.toml |
 | Tests | pytest |
 
 ## Setup
