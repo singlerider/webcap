@@ -39,9 +39,10 @@ jobs:
           sudo apt install -y tesseract-ocr
           pip install poetry
           poetry install
-      # chromium-browser on ubuntu-24.04 is a snap shim that fails to install. The image ships google-chrome.
-      - name: Chrome is available
-        run: google-chrome --version
+      # chromium-browser on ubuntu-24.04 is a snap shim that fails to install. The image ships chrome, but AppArmor
+      # blocks the unprivileged user namespaces its sandbox needs.
+      - name: Allow the Chrome sandbox
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - name: Run tests
         run: |
           poetry run pytest -s -vv --disable-warnings --cov-report xml:cov.xml --cov=webcap .
