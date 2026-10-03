@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "webcap"
-version = "0.1.0"
+version = "0.1.103"
 description = "An ultra-lightweight web screenshot tool written in Python"
 authors = ["TheTechromancer"]
 repository = "https://github.com/blacklanternsecurity/webcap"
@@ -38,15 +38,9 @@ lint.ignore = ["E402", "E721", "E741", "F401", "F403", "F405", "E713"]
 ruff = "==0.11.10"
 pytest-httpserver = "^1.1.0"
 pytest-asyncio = "^0.25.2"
-poetry-dynamic-versioning = "^1.4.1"
 pytest-cov = "^6.0.0"
 lxml = "^5.3.0"
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
-
-[tool.poetry-dynamic-versioning]
-enable = true
-metadata = true
-format = "v0.1.{distance}"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
