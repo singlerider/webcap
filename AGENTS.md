@@ -19,6 +19,8 @@ poetry install
 
 ## Tests
 
+Tests drive a real Chrome or Chromium found on PATH (`possible_chrome_binaries` in `webcap/browser.py`). Without one they fail with `Chrome executable not found`.
+
 ```bash
 poetry run pytest
 ```
